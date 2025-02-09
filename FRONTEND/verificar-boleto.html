@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar Boleto</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="stylesheet" href="css/verificar-boleto.css" />
+    <!-- Enlace al CSS -->
+  </head>
+  <body>
+    <!-- ===============================================
+         HEADER (Navegación principal)
+    ================================================ -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/img/logo.svg"
+              alt="Sorteos ChuriOne Logo"
+              class="logo"
+            />
+          </a>
+
+          <!-- Menú móvil (botón hamburguesa) -->
+          <button class="mobile-menu-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Menú de navegación -->
+          <ul class="nav-menu">
+            <li><a href="index.html#rifas">Rifas Activas</a></li>
+            <li><a href="index.html#ganadores">Ganadores</a></li>
+            <li><a href="index.html#verificar">Verificar Boleto</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li class="nav-button">
+              <a href="compra-boletos.html" class="btn btn-primary"
+                >Comprar Boletos</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sección de Verificación -->
+    <main class="verification-section">
+      <section class="inf-boleto">
+        <h2>Resultado de la Verificación</h2>
+
+        <!-- Información del boleto -->
+        <div class="ticket">
+          <div class="ticket-header">
+            <img
+              src="assets/img/iphone15.webp"
+              alt="Imagen del Sorteo"
+              class="sorteo-image"
+            />
+            <h3 class="ticket-title">Sorteo $800,000 MXN</h3>
+          </div>
+
+          <div id="ticket-details" class="ticket-details">
+            <h2>Boleto: <span id="ticket-number-display"></span></h2>
+            <div id="ticket-status"></div>
+          </div>
+        </div>
+
+        <!-- Mensaje dinámico -->
+        <div id="message-container" class="message info">
+          <!-- Este mensaje será dinámico -->
+        </div>
+      </section>
+
+      <!-- Verificar otro boleto -->
+      <section id="verificar-otro" class="verify-another-section">
+        <h3>Verifica tus boletos</h3>
+        <form id="verify-another-form" class="verify-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="another-ticket-number"
+              placeholder="Ingresa tu número de boleto"
+              required
+            />
+          </div>
+          <button type="submit" class="btnwa btn-primary">Verificar</button>
+        </form>
+      </section>
+
+      <!-- Botones de acción -->
+      <div style="margin-top: 2rem; text-align: center">
+        <button
+          class="btnwa btn-secondary"
+          onclick="window.location.href='index.html'"
+        >
+          Volver al Inicio
+        </button>
+      </div>
+    </main>
+
+    <!-- Script externo -->
+    <script src="js/verificar-boleto.js"></script>
+    <!-- Enlace al archivo JS -->
+  </body>
+</html>

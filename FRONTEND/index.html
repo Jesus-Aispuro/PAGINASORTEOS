@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteos ChuriOne</title>
+
+    <!-- Descripción para SEO -->
+    <meta
+      name="description"
+      content="Plataforma de rifas en línea confiable. Participa en sorteos transparentes con premios garantizados."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+    <!-- Font Awesome (Iconos) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ===============================================
+         HEADER (Navegación principal)
+    ================================================ -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/img/logo.svg"
+              alt="Sorteos ChuriOne Logo"
+              class="logo"
+            />
+          </a>
+
+          <!-- Menú móvil (botón hamburguesa) -->
+          <button class="mobile-menu-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Menú de navegación -->
+          <ul class="nav-menu">
+            <li><a href="#rifas">Rifas Activas</a></li>
+            <li><a href="#ganadores">Ganadores</a></li>
+            <li><a href="#verificar">Verificar Boleto</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li class="nav-button">
+              <a href="compra-boletos.html" class="btn btn-primary"
+                >Comprar Boletos</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===============================================
+         SECCIÓN HERO (Portada)
+    ================================================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Las Mejores Rifas en Línea</h1>
+          <p>
+            Participa en sorteos transparentes y gana premios increíbles. ¡Tu
+            próximo premio te espera!
+          </p>
+          <a href="#rifas" class="btn btn-primary btn-lg">Ver Rifas Activas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         SECCIÓN RIFAS ACTIVAS
+    ================================================ -->
+    <section id="rifas" class="section">
+      <div class="container">
+        <h2 class="section-title">Rifas Activas</h2>
+        <div class="rifas-grid">
+          <!-- Ejemplo de Tarjeta de Rifa -->
+          <div class="rifa-card">
+            <div class="rifa-image">
+              <img src="assets/img/iphone15.webp" alt="Premio Rifa 1" />
+              <div class="rifa-badge">¡Popular!</div>
+            </div>
+            <div class="rifa-content">
+              <h3>iPhone 15 Pro Max</h3>
+              <p class="rifa-description">
+                ¡Gana el último iPhone! 256GB, Color Titanio Natural
+              </p>
+              <div class="rifa-progress">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%"></div>
+                </div>
+                <span class="progress-text">75% Vendido</span>
+              </div>
+              <div class="rifa-details">
+                <span class="price">$100 MXN/Boleto</span>
+                <span class="countdown" data-countdown="2024-12-31T23:59:59"
+                  >3d 12h 45m</span
+                >
+              </div>
+              <a href="compra-boletos.html" class="btn btn-primary btn-block"
+                >Comprar Boletos</a
+              >
+            </div>
+          </div>
+          <!-- Agregar más tarjetas según sea necesario -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         SECCIÓN DE GANADORES
+    ================================================ -->
+    <section id="ganadores" class="section winners-section">
+      <div class="container">
+        <h2 class="section-title">Últimos Ganadores</h2>
+        <div class="winners-grid">
+          <!-- Tarjeta de Ganador -->
+          <div class="winner-card">
+            <img src="assets/img/Daniel.jpg" alt="Ganador 1" />
+            <div class="winner-info">
+              <h3>Daniel Canseco</h3>
+              <p>Premio: Consolador de 20cm</p>
+              <span class="date">Noviembre 2024</span>
+            </div>
+          </div>
+
+          <div class="winner-card">
+            <img src="assets/img/Daniel.jpg" alt="Ganador 1" />
+            <div class="winner-info">
+              <h3>Daniel Canseco</h3>
+              <p>Premio: Vehiculo todo terreno "Terreneitor"</p>
+              <span class="date">Noviembre 2024</span>
+            </div>
+          </div>
+
+          <div class="winner-card">
+            <img src="assets/img/Daniel.jpg" alt="Ganador 1" />
+            <div class="winner-info">
+              <h3>Daniel Canseco</h3>
+              <p>Premio: Viaje todo pagado a Motel Kissu</p>
+              <span class="date">Noviembre 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         SECCIÓN DE VERIFICACIÓN DE BOLETOS
+    ================================================ -->
+    <section id="verificar" class="section verify-section">
+      <div class="container">
+        <h2 class="section-title">Verificar Boleto</h2>
+        <div class="verify-container">
+          <form id="verify-form" class="verify-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="ticket-number"
+                placeholder="Ingresa tu número de boleto"
+                required
+              />
+            </div>
+            <button type="submit" class="btnwa btn-primary">Verificar</button>
+          </form>
+
+          <!-- Aquí se insertarán los mensajes (de error, éxito, etc.) -->
+          <div id="ticket-status-message"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         SECCIÓN DE FAQ
+    ================================================ -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-container">
+          <!-- Pregunta 1 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Cómo participar en las rifas?</h3>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Participar es muy sencillo:</p>
+              <ol>
+                <li>Selecciona la rifa de tu interés</li>
+                <li>Elige tus números disponibles</li>
+                <li>Realiza el pago por el método que prefieras</li>
+                <li>Recibirás tu comprobante por correo electrónico</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Cómo se realizan los sorteos?</h3>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Todos nuestros sorteos se realizan con base en la Lotería
+                Nacional de México. El ganador será determinado por el número
+                ganador del sorteo previamente anunciado.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pregunta 3 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Cómo recibo mi premio si gano?</h3>
+              <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>La entrega de premios se realiza de la siguiente manera:</p>
+              <ul>
+                <li>Verificamos tu boleto ganador</li>
+                <li>Te contactamos para coordinar la entrega</li>
+                <li>Realizamos la entrega en un plazo máximo de 15 días</li>
+                <li>Todo el proceso es documentado y transparente</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         SECCIÓN DE CONTACTO
+    ================================================ -->
+    <section id="contacto" class="section contacto-section">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p>
+          Conéctate con nosotros en nuestras redes sociales o envíanos un
+          mensaje directo:
+        </p>
+
+        <!-- Botones de redes sociales -->
+        <div class="social-buttons">
+          <a
+            href="https://wa.me/6645103429"
+            class="btnwa btn-whatsapp"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61550092950663"
+            class="btnwa btn-facebook"
+            target="_blank"
+          >
+            <i class="fab fa-facebook-f"></i>acebook
+          </a>
+          <a
+            href="https://tiktok.com/@ChuriOne"
+            class="btnwa btn-tiktok"
+            target="_blank"
+          >
+            <i class="fab fa-tiktok"></i> TikTok
+          </a>
+          <a
+            href="https://www.instagram.com/churione_/"
+            class="btnwa btn-instagram"
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================
+         FOOTER (Pie de Página)
+    ================================================ -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Sorteos ChuriOne Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

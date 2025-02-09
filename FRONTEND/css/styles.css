@@ -1,0 +1,746 @@
+/* ===============================================
+   VARIABLES CSS (Colores, Espaciados, etc.)
+================================================ */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #4f46e5;
+  --dark-color: #1f2937;
+  --light-color: #f3f4f6;
+  --success-color: #22c55e;
+  --warning-color: #eab308;
+  --error-color: #ef4444;
+
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --border-radius: 0.5rem;
+  --transition: all 0.3s ease;
+}
+
+/* ===============================================
+   RESETEO Y ESTILOS BASE
+================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background-color: var(--gray-100);
+  overflow-x: hidden; /* Prevenir desplazamiento horizontal */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===============================================
+   LAYOUT GENERAL (Contenedores y Espaciado)
+================================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Espaciado adicional */
+}
+
+/* ===============================================
+   BOTONES (Estilos Generales)
+================================================ */
+.btn {
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  color: #000;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btnwa {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+
+.btn-primary {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+}
+.btn-primary:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  filter: brightness(1.1);
+}
+/* Efecto de brillo al hover */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  opacity: 1;
+  transform: rotate(45deg) translateY(-50%);
+}
+.btnwa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  filter: brightness(1.1);
+}
+
+
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* ===============================================
+   HEADER (Navegación y Menú)
+================================================ */
+/* Header principal */
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 2rem; /* Espaciado interno para no tocar los bordes */
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  justify-content: space-between; /* Espacio entre logo y menú */
+  align-items: center;
+  height: 80px;
+}
+
+/* Logo */
+.logo {
+  width: 200px; /* Reducido para ajustarse mejor */
+  height: auto;
+  margin: 0; /* Eliminar el margen automático */
+  padding-top: 12px;
+  flex-grow: 1; /* Permite que el logo crezca en el espacio disponible */
+}
+
+/* Menú de navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Estilos para los enlaces de navegación */
+.nav-menu a {
+  color: var(--gray-700);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Menú móvil */
+.mobile-menu-btn {
+  display: none; /* Ocultar en pantallas grandes */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mobile-menu-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--gray-900);
+  border-radius: 5px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Menú móvil visible solo en pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* Ocultar el menú de navegación por defecto */
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    position: absolute;
+    top: 80px; /* Ajustar para que no se superponga al header */
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+  }
+
+  .nav-menu.active {
+    display: flex; /* Mostrar el menú cuando esté activo */
+  }
+
+  /* Botón hamburguesa */
+  .mobile-menu-btn {
+    display: flex; /* Mostrar el botón de menú en dispositivos pequeños */
+  }
+
+  /* Alinear el logo a la izquierda y el menú hamburguesa a la derecha */
+  .logo {
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+}
+
+/* ===============================================
+   SECCIÓN HERO (Portada)
+================================================ */
+.hero {
+  padding: 8rem 0 4rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* ===============================================
+   SECCIÓN RIFAS (Tarjetas de Sorteos)
+================================================ */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--gray-900);
+}
+
+.rifas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.rifa-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  margin: 0 auto; /* Centra la tarjeta en su columna */
+}
+
+.rifa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rifa-image {
+  position: relative;
+  padding-top: 66.67%;
+}
+
+.rifa-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rifa-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.rifa-content {
+  padding: 1.5rem;
+}
+
+.rifa-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.rifa-description {
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+
+/* ===============================================
+   SECCIÓN GANADORES
+================================================ */
+.winners-section {
+  padding: 4rem 0; /* Espaciado superior e inferior */
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+.winners-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--gray-900); /* Ajustar al color principal */
+}
+
+/* Grid de Ganadores */
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tarjetas responsivas */
+  gap: 2rem; /* Espaciado entre tarjetas */
+}
+
+/* Tarjetas de Ganadores */
+.winner-card {
+  background-color: white;
+  border-radius: var(--border-radius); /* Bordes redondeados generales */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center; /* Centrar contenido */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.winner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen circular */
+.winner-card img {
+  width: 100px; /* Ancho fijo */
+  height: 100px; /* Altura igual al ancho */
+  border-radius: 50%; /* Hace la imagen circular */
+  object-fit: cover; /* Recorta la imagen para que se ajuste */
+  margin: 1rem auto; /* Centra la imagen verticalmente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra para resaltar */
+}
+
+/* Información del Ganador */
+.winner-info {
+  padding: 0.5rem;
+}
+
+.winner-info h3 {
+  font-size: 1rem; /* Tamaño más pequeño */
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+
+.winner-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.winner-info .date {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+
+/* ===============================================
+   SECCIÓN FAQ (Preguntas Frecuentes)
+================================================ */
+.faq-section {
+  background-color: var(--gray-100);
+  padding: 4rem 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.faq-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item.active .faq-answer {
+  padding: 1.5rem;
+  max-height: 500px;
+}
+
+.faq-icon {
+  transition: var(--transition);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* ===============================================
+   SECCIÓN VERIFICAR BOLETO
+================================================ */
+.verify-section {
+  background-color: var(--gray-100);
+  padding: 4rem 0;
+}
+
+.verify-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.verify-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Estilo para los mensajes dinámicos */
+#ticket-status-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+/* Mensajes de éxito (verde) */
+#ticket-status-message.success {
+  background-color: #22c55e; /* Verde para éxito */
+  color: white;
+}
+
+/* Mensajes de error (rojo) */
+#ticket-status-message.error {
+  background-color: #ef4444; /* Rojo para error */
+  color: white;
+}
+
+/* Mensajes informativos (amarillo) */
+#ticket-status-message.info {
+  background-color: #f59e0b; /* Amarillo para información */
+  color: white;
+}
+
+
+/* ===============================================
+   SECCIÓN CONTACTO
+================================================ */
+/* Estilos de la sección de contacto */
+.contacto-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.contacto-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--gray-900);
+}
+
+.contacto-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: var(--gray-700);
+}
+
+/* Botones de redes sociales */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Espacio entre botones */
+}
+
+.social-buttons .btnwa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Colores específicos por red social */
+.btn-whatsapp {
+  background-color: #25d366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe57;
+}
+
+.btn-facebook {
+  background-color: #4267b2;
+}
+
+.btn-facebook:hover {
+  background-color: #365899;
+}
+
+.btn-tiktok {
+  background-color: #010101;
+}
+
+.btn-tiktok:hover {
+  background-color: #333333;
+}
+
+.btn-instagram {
+  background: linear-gradient(45deg, #fd1d1d, #fcb045);
+}
+
+.btn-instagram:hover {
+  background: linear-gradient(45deg, #d62976, #fcb045);
+}
+
+/* Animación al pasar el mouse */
+.social-buttons .btn:hover {
+  transform: scale(1.05); /* Pequeño aumento */
+}
+
+/* ===============================================
+   SECCIÓN TOAST
+================================================ */
+/* Estilo base del toast */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* Mostrar el toast */
+.toast.show {
+  opacity: 1;  /* Cuando se muestra, la opacidad es 1 */
+}
+
+/* Estilo para el toast de éxito */
+.toast-success {
+  background-color: green;
+}
+
+/* Estilo para el toast de error */
+.toast-error {
+  background-color: red;
+}
+
+/* ===============================================
+   RESPONSIVE DESING
+================================================ */
+/* Responsive: ajustes generales para pantallas de hasta 768px */
+@media (max-width: 768px) {
+
+  /* Ajustes para la sección de FAQ */
+  .faq-item {
+    padding: 1rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem; /* Reducir tamaño de fuente para móviles */
+  }
+
+  /* Formulario de contacto y verificación */
+  .verify-form,
+  .contact-form {
+    padding: 1.5rem; /* Espaciado reducido para móviles */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.875rem; /* Ajuste del tamaño de la fuente */
+  }
+
+  .contact-form button {
+    font-size: 1rem; /* Botones más pequeños */
+  }
+
+  /* Botón de menú móvil */
+  .mobile-menu-btn {
+    display: flex; /* Mostrar el botón en dispositivos pequeños */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--gray-900);
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Menú de navegación móvil */
+  .nav-menu {
+    display: none; /* Ocultar el menú por defecto */
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+  }
+
+  .nav-menu.active {
+    display: flex; /* Mostrar el menú cuando se active */
+  }
+}

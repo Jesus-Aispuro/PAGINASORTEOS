@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema de compra de boletos para sorteos"
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Compra de Boletos - Sistema de Sorteos</title>
+
+    <!-- Precargar recursos críticos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preload" href="css/compra-boletos.css" as="style" />
+    <link rel="preload" href="assets/img/Casino.gif" as="image" />
+
+    <!-- Favicon y estilos -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="stylesheet" href="css/compra-boletos.css" />
+  </head>
+  <body>
+    <!-- Loader inicial -->
+    <div id="initial-loader" class="loader">
+      <div class="loader-spinner"></div>
+      <p>Cargando sistema...</p>
+    </div>
+
+    <!-- ===============================================
+         HEADER (Navegación principal)
+    ================================================ -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/img/logo.svg"
+              alt="Sorteos ChuriOne Logo"
+              class="logo"
+            />
+          </a>
+
+          <!-- Menú móvil (botón hamburguesa) -->
+          <button class="mobile-menu-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Menú de navegación -->
+          <ul class="nav-menu">
+            <li><a href="index.html#rifas">Rifas Activas</a></li>
+            <li><a href="index.html#ganadores">Ganadores</a></li>
+            <li>
+              <a href="index.html#verificar">Verificar Boleto</a>
+            </li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+            <li class="nav-button">
+              <a href="compra-boletos.html" class="btn btn-primary"
+                >Comprar Boletos</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Información del Sorteo -->
+    <section class="info-section" aria-labelledby="sorteo-info">
+      <h2 id="sorteo-info" class="premio-title">
+        Información del Sorteo Actual
+      </h2>
+
+      <div class="premio-container">
+        <img
+          src="assets/img/iphone15.webp"
+          alt="iPhone 15 - Premio Principal"
+          class="info-image"
+          loading="lazy"
+        />
+        <div class="premio-details">
+          <h3>Premio Principal: iPhone 15</h3>
+          <p class="premio-description">
+            ¡Participa y gana este increíble premio!
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabla de Precios -->
+      <div class="precios-container">
+        <h3>Precios por Cantidad</h3>
+        <div class="precio-grid">
+          <div class="precio-item">
+            <span class="cantidad">1 boleto</span>
+            <span class="precio">$15</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">2 boletos</span>
+            <span class="precio">$30</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">3 boletos</span>
+            <span class="precio">$45</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">4 boletos</span>
+            <span class="precio">$60</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">5 boletos</span>
+            <span class="precio">$75</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">10 boletos</span>
+            <span class="precio">$150</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">20 boletos</span>
+            <span class="precio">$300</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">30 boletos</span>
+            <span class="precio">$450</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">40 boletos</span>
+            <span class="precio">$600</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">50 boletos</span>
+            <span class="precio">$750</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">100 boletos</span>
+            <span class="precio">$1,500</span>
+          </div>
+          <div class="precio-item">
+            <span class="cantidad">200 boletos</span>
+            <span class="precio">$3,000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="info-adicional">
+        <p>
+          ¡No pierdas la oportunidad de ganar! Entre más boletos compres, más
+          posibilidades tienes.
+        </p>
+        <p>
+          El sorteo se realizará en vivo a través de nuestras redes sociales.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección Principal -->
+    <main class="main-section">
+      <h2>Elige tu Método de Selección</h2>
+
+      <!-- Botones de Selección -->
+      <div class="button-container">
+        <button
+          class="btn btn-primary"
+          id="manual-selection"
+          aria-label="Selección Manual de Boletos"
+        >
+          <i class="icon-manual"></i>
+          Selección Manual
+        </button>
+        <button
+          class="btn btn-primary"
+          id="lucky-machine"
+          aria-label="Usar Maquinita de la Suerte"
+        >
+          <i class="icon-machine"></i>
+          Maquinita de la Suerte
+        </button>
+      </div>
+
+      <!-- Sección de Selección Manual -->
+      <section
+        id="manual-section"
+        class="selection-section"
+        style="display: none"
+        aria-labelledby="manual-title"
+      >
+        <h3 id="manual-title">Selección Manual de Boletos</h3>
+
+        <!-- Controles de Paginación -->
+        <div class="pagination-controls" aria-label="Paginación de boletos">
+          <button
+            id="prev-page"
+            class="btn-page"
+            disabled
+            aria-label="Página anterior"
+          >
+            ←
+          </button>
+          <span id="page-info">
+            Página <span id="current-page">1</span> de
+            <span id="total-pages">10</span>
+          </span>
+          <button id="next-page" class="btn-page" aria-label="Página siguiente">
+            →
+          </button>
+        </div>
+
+        <!-- Grid de Boletos -->
+        <div
+          id="manual-boletos"
+          class="boletos-grid"
+          role="grid"
+          aria-label="Cuadrícula de boletos disponibles"
+        ></div>
+
+        <!-- Boletos Seleccionados -->
+        <div id="selected-boletos" class="selected-section">
+          <h4>Boletos Seleccionados</h4>
+          <div id="boletos-seleccionados-msg" class="selection-message">
+            No hay boletos seleccionados
+          </div>
+          <ul
+            id="selected-boletos-list"
+            class="selected-list"
+            aria-label="Lista de boletos seleccionados"
+          ></ul>
+          <div class="selection-actions">
+            <button
+              id="clear-selection"
+              class="btn-secondary"
+              aria-label="Limpiar selección actual"
+            >
+              Limpiar Selección
+            </button>
+            <button
+              id="apart-button-manual"
+              class="apart-button"
+              style="display: none"
+            >
+              Apartar Boletos
+            </button>
+          </div>
+        </div>
+
+        <button
+          id="close-manual-section"
+          class="btn-close"
+          aria-label="Cerrar sección manual"
+        >
+          Cerrar
+        </button>
+      </section>
+
+      <!-- Sección Maquinita de la Suerte -->
+      <section
+        id="machine-section"
+        class="selection-section"
+        style="display: none"
+        aria-labelledby="machine-title"
+      >
+        <h3 id="machine-title">🎰 Maquinita de la Suerte 🎰</h3>
+
+        <form id="machine-form" class="machine-form">
+          <div class="machine-input">
+            <label for="num-boletos">Cantidad de Boletos:</label>
+            <select
+              id="num-boletos"
+              class="select-boletos"
+              required
+              aria-label="Seleccionar cantidad de boletos"
+            >
+              <option value="" disabled selected>Selecciona cantidad</option>
+              <option value="1">1 Boleto</option>
+              <option value="2">2 Boletos</option>
+              <option value="3">3 Boleto</option>
+              <option value="4">4 Boletos</option>
+              <option value="5">5 Boleto</option>
+              <option value="6">6 Boletos</option>
+              <option value="7">7 Boleto</option>
+              <option value="8">8 Boletos</option>
+              <option value="9">9 Boleto</option>
+              <option value="10">10 Boletos</option>
+              <option value="20">20 Boleto</option>
+              <option value="30">30 Boletos</option>
+              <option value="40">40 Boleto</option>
+              <option value="50">50 Boletos</option>
+              <option value="100">100 Boleto</option>
+              <option value="200">200 Boletos</option>
+              <!-- ... más opciones ... -->
+            </select>
+          </div>
+
+          <button
+            type="button"
+            class="overlay__jackpot-button"
+            id="spin-machine"
+            aria-label="Generar boletos aleatorios"
+          >
+            <h4>¡GENERAR BOLETOS AL AZAR!</h4>
+            <img
+              src="assets/img/Casino.gif"
+              id="loading-gif"
+              alt="Generando boletos..."
+              style="display: none"
+            />
+          </button>
+        </form>
+
+        <div
+          id="lucky-results"
+          class="results-container"
+          aria-live="polite"
+        ></div>
+
+        <div class="machine-actions">
+          <button
+            id="apart-button-machine"
+            class="apart-button"
+            style="display: none"
+          >
+            Apartar Boletos
+          </button>
+          <button
+            id="close-machine-section"
+            class="btn-close"
+            aria-label="Cerrar sección maquinita"
+          >
+            Cerrar
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal de Compra -->
+    <div
+      id="purchase-modal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <button
+          id="close-purchase-modal"
+          class="btn-close"
+          aria-label="Cerrar modal"
+        >
+          ×
+        </button>
+
+        <h3 id="modal-title">Completa tus Datos</h3>
+
+        <ul
+          id="selected-tickets-list"
+          class="tickets-list"
+          aria-label="Boletos seleccionados para compra"
+        ></ul>
+
+        <form id="purchase-form" class="purchase-form">
+          <!-- Campo Teléfono -->
+          <div class="form-group">
+            <label for="phone">Teléfono (10 dígitos):</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              pattern="^[0-9]{10}$"
+              placeholder="Ej: 1234567890"
+              aria-describedby="phone-help"
+            />
+            <small id="phone-help" class="help-text">
+              Ingresa un número de 10 dígitos sin espacios
+            </small>
+          </div>
+
+          <!-- Campos Nombre -->
+          <div class="form-group">
+            <label for="first-name">Nombre(s):</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              required
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="last-name">Apellidos:</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              required
+              placeholder="Tus apellidos"
+            />
+          </div>
+
+          <!-- Campo Estado -->
+          <div class="form-group">
+            <label for="state">Estado:</label>
+            <select id="state" name="state" required>
+              <option value="" disabled selected>Selecciona tu estado</option>
+              <option value="ESTADOS UNIDOS">ESTADOS UNIDOS</option>
+              <option value="OTRO PAIS">OTRO PAIS</option>
+              <option value="AGUASCALIENTES">AGUASCALIENTES</option>
+              <option value="BAJA CALIFORNIA">BAJA CALIFORNIA</option>
+              <option value="BAJA CALIFORNIA SUR">BAJA CALIFORNIA SUR</option>
+              <option value="CAMPECHE">CAMPECHE</option>
+              <option value="CIUDAD DE MÉXICO">CIUDAD DE MÉXICO</option>
+              <option value="COAHUILA">COAHUILA</option>
+              <option value="COLIMA">COLIMA</option>
+              <option value="CHIAPAS">CHIAPAS</option>
+              <option value="CHIHUAHUA">CHIHUAHUA</option>
+              <option value="DURANGO">DURANGO</option>
+              <option value="ESTADO DE MÉXICO">ESTADO DE MÉXICO</option>
+              <option value="GUANAJUATO">GUANAJUATO</option>
+              <option value="GUERRERO">GUERRERO</option>
+              <option value="HIDALGO">HIDALGO</option>
+              <option value="JALISCO">JALISCO</option>
+              <option value="MICHOACÁN">MICHOACÁN</option>
+              <option value="MORELOS">MORELOS</option>
+              <option value="NAYARIT">NAYARIT</option>
+              <option value="NUEVO LEÓN">NUEVO LEÓN</option>
+              <option value="OAXACA">OAXACA</option>
+              <option value="PUEBLA">PUEBLA</option>
+              <option value="QUERÉTARO">QUERÉTARO</option>
+              <option value="QUINTANA ROO">QUINTANA ROO</option>
+              <option value="SAN LUIS POTOSÍ">SAN LUIS POTOSÍ</option>
+              <option value="SINALOA">SINALOA</option>
+              <option value="SONORA">SONORA</option>
+              <option value="TABASCO">TABASCO</option>
+              <option value="TAMAULIPAS">TAMAULIPAS</option>
+              <option value="TLAXCALA">TLAXCALA</option>
+              <option value="VERACRUZ">VERACRUZ</option>
+              <option value="YUCATÁN">YUCATÁN</option>
+              <option value="ZACATECAS">ZACATECAS</option>
+            </select>
+          </div>
+
+          <p class="form-notice">
+            Al finalizar serás redirigido a WhatsApp para confirmar tu apartado
+          </p>
+
+          <div class="button-container">
+            <button type="submit" class="btn-primary" id="submit-purchase">
+              Apartar Boletos
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sección de Detalles de Usuario -->
+    <section
+      id="user-details-section"
+      class="info-section"
+      style="display: none"
+      aria-labelledby="details-title"
+    >
+      <h2 id="details-title">Detalles del Apartado</h2>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <strong>Nombre:</strong>
+          <span id="display-name"></span>
+        </div>
+        <div class="detail-item">
+          <strong>Teléfono:</strong>
+          <span id="display-phone"></span>
+        </div>
+        <div class="detail-item">
+          <strong>Estado:</strong>
+          <span id="display-state"></span>
+        </div>
+        <div class="detail-item">
+          <strong>Boletos:</strong>
+          <span id="display-boletos"></span>
+        </div>
+        <div class="detail-item">
+          <strong>Folio:</strong>
+          <span id="display-folio"></span>
+        </div>
+      </div>
+
+      <div class="whatsapp-floating">
+        <button
+          id="whatsapp-button"
+          class="whatsapp-button"
+          aria-label="Contactar por WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i>
+          <span>¿Dudas? ¡Contáctanos!</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/compra-boletos.js"></script>
+  </body>
+</html>
